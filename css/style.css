@@ -626,42 +626,30 @@ body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
 /* =====================================================
-   MOBILE FIX — JAGA SPA, BUKA SCROLL
+   MOBILE MODE — FINAL, STABIL, TIDAK NUMPUK
 ===================================================== */
 @media (max-width: 768px) {
 
-  /* ===============================
-     1. PAGES: BOLEH PANJANG
-  =============================== */
+  /* Pages boleh panjang */
   .pages {
     height: auto;
     padding-top: 72px;
   }
 
-  /* ===============================
-     2. PAGE: TETAP SPA!
-     (HANYA ACTIVE YANG TAMPIL)
-  =============================== */
+  /* MOBILE = DISPLAY-BASED SPA */
   .page {
-    position: absolute;       /* PENTING: JANGAN static */
-    inset: 0;
-    overflow-y: auto;         /* ✅ INI KUNCI */
-  }
-
-  .page:not(.active) {
-    display: none;            /* 🔥 CEGAT NUMPUK */
-  }
-
-  .page.active {
-    display: block;
+    display: none;
+    position: static;
     opacity: 1;
     transform: none;
     pointer-events: auto;
   }
 
-  /* ===============================
-     3. TYPEWRITER — MATI TOTAL
-  =============================== */
+  .page.active {
+    display: block;
+  }
+
+  /* TYPEWRITER MATI TOTAL */
   .typewriter::before,
   .typewriter::after {
     display: none !important;
@@ -672,33 +660,20 @@ body.dark .line-v {
     white-space: normal !important;
   }
 
-  /* ===============================
-     4. STRUKTUR ORGANISASI
-  =============================== */
-  .tree {
-    align-items: stretch;
-  }
-
+  /* STRUKTUR */
+  .tree { align-items: stretch; }
   .row {
     flex-direction: column;
     gap: 16px;
   }
-
   .node {
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
   }
 
-  /* ===============================
-     5. CONTACT
-  =============================== */
-  .contact-bem {
-    grid-template-columns: 1fr;
-  }
-
+  /* CONTACT */
+  .contact-bem { grid-template-columns: 1fr; }
   .contact-left,
-  .contact-right {
-    min-height: unset;
-  }
+  .contact-right { min-height: unset; }
 }
