@@ -804,5 +804,30 @@ body.dark .line-v {
   }
 
 }
+/* ===============================
+   CONTACT FINAL FIX (REAL CULPRIT)
+=============================== */
+@media (max-width: 768px) {
+
+  /* CONTACT CARD HARUS AUTO */
+  .contact-left,
+  .contact-right {
+    min-height: auto !important; /* 🔥 INI KUNCI */
+    height: auto !important;
+  }
+
+  /* CONTACT LEFT HARUS BOLEH TINGGI */
+  .contact-left {
+    padding-bottom: 56px; /* ruang alami */
+  }
+
+  /* PASTIKAN PARENT-NYA JUGA WARAS */
+  #contact,
+  .contact-bem {
+    overflow: visible !important;
+  }
+
+}
+
 
 
