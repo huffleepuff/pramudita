@@ -625,15 +625,16 @@ body.dark .node.division {
 body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
-/* ===============================
-   MOBILE CORE FIX (WAJIB)
-================================ */
+/* =====================================================
+   MOBILE MODE — FINAL & CLEAN
+   (TANPA MERUSAK DESKTOP / DARK MODE)
+===================================================== */
 @media (max-width: 768px) {
 
-  /* MATIKAN ABSOLUTE SPA */
+  /* ==== MATIKAN TOTAL SPA DI MOBILE ==== */
   .pages {
-    height: auto;
     position: static;
+    height: auto;
     padding-top: 72px;
   }
 
@@ -644,85 +645,62 @@ body.dark .line-v {
     transform: none;
     pointer-events: auto;
     display: block;
-  }
-
-  /* SEMUA PAGE BOLEH SCROLL */
-  .page,
-  .home-scroll {
     overflow: visible;
   }
-}
-@media (max-width: 768px) {
 
-  .tree {
-    align-items: stretch;
-  }
-
-  .row {
-    align-items: center;
-  }
-
-  .node {
-    width: 100%;
-    max-width: 320px;
-    margin-inline: auto;
-  }
-
-  .line-v {
-    height: 18px;
-  }
-}
-@media (max-width: 768px) {
-
-  body.dark .node {
-    background: linear-gradient(145deg, #0f172a, #020617);
-    box-shadow:
-      inset 0 0 0 1px rgba(255,255,255,.08),
-      0 16px 36px rgba(0,0,0,.75);
-  }
-
-  body.dark .node.leader {
-    background: linear-gradient(145deg, #111827, #020617);
-    border: 2px solid var(--yellow);
-  }
-
-  body.dark .node.division {
-    background: linear-gradient(145deg, #1e293b, #020617);
-  }
-}
-/* ===============================
-   FINAL MOBILE UNLOCK PATCH
-   FIX: STRUKTUR & CONTACT KEPOTONG
-================================ */
-@media (max-width: 768px) {
-
-  /* MATIKAN SISTEM SPA DI MOBILE */
-  .pages {
-    position: static;
-    height: auto;
-    padding-top: 72px;
-  }
-
-  .page {
-    position: static;
-    inset: auto;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    display: block;
-  }
-
-  /* ⛔ JANGAN LOCK SCROLL DI MOBILE */
-  .page:not(#home) {
+  /* JANGAN KUNCI SCROLL */
+  .page:not(#home),
+  .home-scroll {
     overflow: visible !important;
   }
 
-  /* HOME */
-  .home-scroll {
-    overflow: visible;
+  /* ==== NAVBAR ==== */
+  .navbar {
+    padding: 0 20px;
+    flex-wrap: wrap;
   }
 
-  /* STRUKTUR FIX */
+  .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .nav-links button {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /* ==== HERO ==== */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .hero-right {
+    margin-top: 32px;
+  }
+
+  .hero-circle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-right img {
+    width: 180px;
+  }
+
+  /* ==== VISION ==== */
+  .home-vision {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  /* ==== STRUKTUR ORGANISASI (INI FIX UTAMA) ==== */
   .tree {
     align-items: stretch;
   }
@@ -732,24 +710,33 @@ body.dark .line-v {
     gap: 16px;
   }
 
+  .line-v {
+    height: 18px;
+  }
+
   .node {
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
   }
 
-  /* CONTACT FIX */
-  .contact {
-    overflow: visible;
-  }
-
+  /* ==== CONTACT (INI FIX UTAMA KE-2) ==== */
   .contact-bem {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .contact-left,
   .contact-right {
     min-height: unset;
   }
-}
 
+  /* ==== SECTION GENERAL ==== */
+  .section {
+    padding: 40px 24px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
