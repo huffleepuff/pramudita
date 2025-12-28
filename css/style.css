@@ -690,3 +690,66 @@ body.dark .line-v {
     background: linear-gradient(145deg, #1e293b, #020617);
   }
 }
+/* ===============================
+   FINAL MOBILE UNLOCK PATCH
+   FIX: STRUKTUR & CONTACT KEPOTONG
+================================ */
+@media (max-width: 768px) {
+
+  /* MATIKAN SISTEM SPA DI MOBILE */
+  .pages {
+    position: static;
+    height: auto;
+    padding-top: 72px;
+  }
+
+  .page {
+    position: static;
+    inset: auto;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    display: block;
+  }
+
+  /* ⛔ JANGAN LOCK SCROLL DI MOBILE */
+  .page:not(#home) {
+    overflow: visible !important;
+  }
+
+  /* HOME */
+  .home-scroll {
+    overflow: visible;
+  }
+
+  /* STRUKTUR FIX */
+  .tree {
+    align-items: stretch;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .node {
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  /* CONTACT FIX */
+  .contact {
+    overflow: visible;
+  }
+
+  .contact-bem {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-left,
+  .contact-right {
+    min-height: unset;
+  }
+}
+
