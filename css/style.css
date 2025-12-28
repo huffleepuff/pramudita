@@ -626,7 +626,7 @@ body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
 /* =====================================================
-   MOBILE MODE — FINAL, STABIL, TIDAK NUMPUK
+   MOBILE FIX — TETAP SPA, TAPI AMAN
 ===================================================== */
 @media (max-width: 768px) {
 
@@ -636,17 +636,24 @@ body.dark .line-v {
     padding-top: 72px;
   }
 
-  /* MOBILE = DISPLAY-BASED SPA */
+  /* PAGE — TETAP ABSOLUTE (JANGAN DISENTUH) */
   .page {
-    display: none;
-    position: static;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;      /* ← INI KUNCI MOBILE */
+    transform: none;       /* matikan animasi */
+    transition: none;
+  }
+
+  /* NON-ACTIVE tetap transparan */
+  .page:not(.active) {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .page.active {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /* TYPEWRITER MATI TOTAL */
@@ -661,11 +668,11 @@ body.dark .line-v {
   }
 
   /* STRUKTUR */
-  .tree { align-items: stretch; }
   .row {
     flex-direction: column;
     gap: 16px;
   }
+
   .node {
     width: 100%;
     max-width: 320px;
@@ -673,7 +680,12 @@ body.dark .line-v {
   }
 
   /* CONTACT */
-  .contact-bem { grid-template-columns: 1fr; }
+  .contact-bem {
+    grid-template-columns: 1fr;
+  }
+
   .contact-left,
-  .contact-right { min-height: unset; }
+  .contact-right {
+    min-height: unset;
+  }
 }
