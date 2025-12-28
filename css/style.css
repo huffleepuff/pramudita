@@ -627,11 +627,13 @@ body.dark .line-v {
 }
 /* =====================================================
    MOBILE MODE — FINAL & CLEAN
-   (TANPA MERUSAK DESKTOP / DARK MODE)
+   (FIX SPA + STRUKTUR + CONTACT + TYPEWRITER)
 ===================================================== */
 @media (max-width: 768px) {
 
-  /* ==== MATIKAN TOTAL SPA DI MOBILE ==== */
+  /* ==============================
+     1. MATIKAN SISTEM SPA DI MOBILE
+  ============================== */
   .pages {
     position: static;
     height: auto;
@@ -648,13 +650,28 @@ body.dark .line-v {
     overflow: visible;
   }
 
-  /* JANGAN KUNCI SCROLL */
   .page:not(#home),
   .home-scroll {
     overflow: visible !important;
   }
 
-  /* ==== NAVBAR ==== */
+  /* ==============================
+     2. TYPEWRITER — HARD KILL
+     (BIANG BUG TULISAN HANTU)
+  ============================== */
+  .typewriter::before,
+  .typewriter::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .typewriter {
+    white-space: normal !important;
+  }
+
+  /* ==============================
+     3. NAVBAR
+  ============================== */
   .navbar {
     padding: 0 20px;
     flex-wrap: wrap;
@@ -672,7 +689,9 @@ body.dark .line-v {
     font-size: 0.9rem;
   }
 
-  /* ==== HERO ==== */
+  /* ==============================
+     4. HERO
+  ============================== */
   .hero {
     grid-template-columns: 1fr;
     padding: 40px 24px;
@@ -692,7 +711,9 @@ body.dark .line-v {
     width: 180px;
   }
 
-  /* ==== VISION ==== */
+  /* ==============================
+     5. VISION
+  ============================== */
   .home-vision {
     grid-template-columns: 1fr;
     padding: 40px 24px;
@@ -700,7 +721,9 @@ body.dark .line-v {
     text-align: center;
   }
 
-  /* ==== STRUKTUR ORGANISASI (INI FIX UTAMA) ==== */
+  /* ==============================
+     6. STRUKTUR ORGANISASI
+  ============================== */
   .tree {
     align-items: stretch;
   }
@@ -720,7 +743,9 @@ body.dark .line-v {
     margin-inline: auto;
   }
 
-  /* ==== CONTACT (INI FIX UTAMA KE-2) ==== */
+  /* ==============================
+     7. CONTACT
+  ============================== */
   .contact-bem {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -731,7 +756,9 @@ body.dark .line-v {
     min-height: unset;
   }
 
-  /* ==== SECTION GENERAL ==== */
+  /* ==============================
+     8. GENERAL SECTION
+  ============================== */
   .section {
     padding: 40px 24px;
   }
