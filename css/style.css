@@ -465,14 +465,11 @@ body {
 }
 /* =====================================================
    MOBILE FINAL — CLEAN, STABIL, WARAS
-   (FIX CONTACT + FOOTER + NO ZOOM)
+   (DARK MODE HIDUP + CONTACT AMAN)
 ===================================================== */
 @media (max-width: 768px) {
 
-  /* ===============================
-     1. RESET TOTAL SISTEM SPA
-  =============================== */
-
+  /* ========== RESET SPA (AMAN) ========== */
   body {
     overflow-x: hidden;
   }
@@ -480,7 +477,6 @@ body {
   .pages {
     position: relative !important;
     height: auto !important;
-    min-height: unset !important;
     padding-top: 72px;
     overflow: visible !important;
   }
@@ -497,11 +493,11 @@ body {
     display: block;
   }
 
-  /* ===============================
-     2. HEADER MOBILE
-  =============================== */
-
+  /* ========== NAVBAR MOBILE ========== */
   .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
     height: auto;
     padding: 14px 18px;
     flex-direction: column;
@@ -509,7 +505,6 @@ body {
     gap: 10px;
   }
 
- @media (max-width: 768px) {
   .nav-links {
     width: 100%;
     display: flex;
@@ -521,18 +516,17 @@ body {
     flex: 1;
     font-size: 0.85rem;
     padding: 6px 0;
+    color: inherit;
   }
 
   #darkToggle {
     flex: 0;
     font-size: 1.1rem;
     cursor: pointer;
+    pointer-events: auto;
   }
-}
-  /* ===============================
-     3. HERO
-  =============================== */
 
+  /* ========== HERO ========== */
   .hero {
     grid-template-columns: 1fr;
     padding: 40px 24px;
@@ -540,18 +534,15 @@ body {
   }
 
   .hero-circle {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
   }
 
   .hero-right img {
-    width: 170px;
+    width: 160px;
   }
 
-  /* ===============================
-     4. STRUKTUR
-  =============================== */
-
+  /* ========== STRUKTUR ========== */
   .row {
     flex-direction: column;
     gap: 16px;
@@ -563,12 +554,9 @@ body {
     margin-inline: auto;
   }
 
-  /* ===============================
-     5. CONTACT — FIX INTI
-  =============================== */
-
+  /* ========== CONTACT (FIX UTAMA) ========== */
   #contact {
-    padding-bottom: 100px;
+    padding-bottom: 120px;
     overflow: visible !important;
   }
 
@@ -583,7 +571,7 @@ body {
   .contact-right {
     height: auto !important;
     min-height: unset !important;
-    padding: 24px;
+    padding: 22px;
     border-radius: 20px;
   }
 
@@ -612,19 +600,12 @@ body {
   }
 
   .contact-right input,
-  .contact-right textarea {
-    font-size: 0.95rem;
-  }
-
+  .contact-right textarea,
   .contact-right button {
     font-size: 0.95rem;
-    padding: 12px;
   }
 
-  /* ===============================
-     6. TYPEWRITER DIMATIKAN TOTAL
-  =============================== */
-
+  /* ========== TYPEWRITER OFF MOBILE ========== */
   .typewriter::before,
   .typewriter::after {
     content: none !important;
@@ -635,38 +616,25 @@ body {
     white-space: normal !important;
   }
 
-  /* ===============================
-     7. FOOTER
-  =============================== */
-
+  /* ========== FOOTER ========== */
   .simple-footer {
     position: relative;
     margin-top: 48px;
     padding: 24px 16px;
   }
 }
-/* =====================================================
-   FIX KRUSIAL — NAVBAR CLICKABLE + DARK MODE HIDUP
-   (DESKTOP & MOBILE)
-===================================================== */
 
+/* =====================================================
+   GLOBAL SAFETY — NAVBAR & DARK MODE
+===================================================== */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10000;          /* 🔥 PALING PENTING */
   pointer-events: auto;
 }
 
-/* Pastikan layer page di bawah navbar */
-.pages {
-  position: relative;
-  z-index: 1;
-}
-
-/* Matikan transform yang bikin layer nutup navbar */
 .page,
 .page.active {
   transform: none !important;
 }
+
 
 
