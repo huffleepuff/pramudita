@@ -1,125 +1,51 @@
-/* ======================================================
-   SPA + TYPEWRITER — FINAL FIX (DESKTOP + MOBILE AMAN)
-====================================================== */
-
 const pages = document.querySelectorAll('.page');
 const buttons = document.querySelectorAll('[data-page]');
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
 /* ===============================
-   TYPEWRITER CORE
+   TYPEWRITER SIMPLE
 ================================ */
-
 function typeText(el) {
   const text = el.dataset.text;
-  if (!text) return;
+  if (!text || el.dataset.done) return;
 
-  el.innerHTML = '';
-  el.dataset.done = 'true';
-
+  el.dataset.done = "true";
+  el.innerHTML = "";
   let i = 0;
-  const speed = 35;
 
-  function type() {
+  const type = () => {
     if (i >= text.length) return;
-
-    const char = text[i];
-    el.innerHTML += char === '\n' ? '<br>' : char;
+    el.innerHTML += text[i] === "\n" ? "<br>" : text[i];
     i++;
-    setTimeout(type, speed);
-  }
+    setTimeout(type, 30);
+  };
 
   type();
 }
 
-/* ===============================
-   OBSERVER (DESKTOP ONLY)
-================================ */
-
-let observer = null;
-
-if (!isMobile) {
-  observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        const el = entry.target;
-        if (entry.isIntersecting && !el.dataset.done) {
-          typeText(el);
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-}
-
-/* ===============================
-   INIT TYPEWRITER
-================================ */
-
 function initTyping(page) {
-  page.querySelectorAll('.typewriter').forEach(el => {
-    if (el.dataset.done) return;
-
-    // 🔥 MOBILE = LANGSUNG ISI (TANPA OBSERVER)
-    if (isMobile) {
-      typeText(el);
-      return;
-    }
-
-    // DESKTOP BEHAVIOR
-    if (page.id === 'home') {
-      typeText(el);
-    } else {
-      observer.observe(el);
-    }
-  });
+  page.querySelectorAll('.typewriter').forEach(typeText);
 }
 
 /* ===============================
-   NAVIGATION HANDLER (SPA)
+   NAVIGATION
 ================================ */
-
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    // bersihin observer desktop
-    if (observer) observer.disconnect();
-
     pages.forEach(p => p.classList.remove('active'));
-
     const page = document.getElementById(btn.dataset.page);
-    if (!page) return;
-
     page.classList.add('active');
-
-    // 🔒 reset typing state
-    page.querySelectorAll('.typewriter').forEach(el => {
-      el.dataset.done = '';
-      el.innerHTML = '';
-    });
-
-    // mobile scroll ke atas
-    if (isMobile) {
-      page.scrollTop = 0;
-      window.scrollTo({ top: 0 });
-    }
-
     initTyping(page);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 
-/* ===============================
-   FIRST LOAD
-================================ */
-
-const firstPage = document.querySelector('.page.active');
-if (firstPage) {
-  initTyping(firstPage);
-}
+/* FIRST LOAD */
+initTyping(document.querySelector('.page.active'));
 
 /* ===============================
-   DARK MODE TOGGLE
+   DARK MODE
 ================================ */
-
 const toggle = document.getElementById('darkToggle');
 const body = document.body;
 
@@ -127,7 +53,7 @@ if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
 }
 
-toggle?.addEventListener('click', () => {
+toggle.addEventListener('click', () => {
   body.classList.toggle('dark');
   localStorage.setItem(
     'theme',
