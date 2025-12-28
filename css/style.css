@@ -696,3 +696,81 @@ body.dark .line-v {
     grid-template-columns: 1fr;
   }
 }
+/* ===============================
+   MOBILE HEADER — CLEAN & NICE
+================================ */
+@media (max-width: 768px) {
+
+  .navbar {
+    height: auto;
+    padding: 14px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 28px;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-links button {
+    font-size: 0.85rem;
+    padding: 6px 0;
+  }
+
+  #darkToggle {
+    font-size: 1.1rem;
+    justify-self: end;
+  }
+
+}
+/* ===============================
+   MOBILE CONTACT — FULLY SAFE
+================================ */
+@media (max-width: 768px) {
+
+  .contact {
+    padding-bottom: 80px; /* ruang aman sebelum footer */
+  }
+
+  .contact-bem {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-left,
+  .contact-right {
+    padding: 28px;
+  }
+
+  .contact-left h3 {
+    font-size: 1.6rem;
+  }
+
+  .contact-line {
+    align-items: center;
+  }
+
+  .contact-line span {
+    line-height: 1.4;
+  }
+
+  .contact-right textarea {
+    resize: vertical;
+  }
+
+}
+
