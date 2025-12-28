@@ -463,42 +463,73 @@ body {
 .page:not(#home) {
   overflow: hidden;
 }
-/* ===============================
-   PATCH AMAN — HOME SCROLL ONLY
-   (TIDAK MERUSAK PAGE LAIN)
-================================ */
+/* =====================================================
+   MOBILE FINAL FIX — STOP CUTTING CONTENT
+   (CONTACT, FOOTER, SCROLL FIX)
+===================================================== */
+@media (max-width: 768px) {
 
-/* Jangan sentuh sistem SPA lama */
-.page#home {
-  position: absolute;      /* tetap absolute */
-  overflow-y: auto;        /* scroll aktif DI DALAM home */
-}
+  /* ===============================
+     1. LEPAS KUNCI CONTAINER
+  =============================== */
+  .pages {
+    height: auto !important;
+    min-height: calc(100vh - 72px);
+    position: static !important;
+    padding-top: 72px;
+  }
 
-/* Paksa isi home boleh lebih tinggi dari 1 layar */
-.page#home > * {
-  pointer-events: auto;
-}
+  /* ===============================
+     2. PAGE = NORMAL FLOW
+  =============================== */
+  .page {
+    position: static !important;
+    inset: auto !important;
+    display: none;
+    overflow: visible !important;
+  }
 
-/* Hero tetap 1 layar penuh */
-.page#home .hero {
-  min-height: calc(100vh - 72px);
-}
+  .page.active {
+    display: block;
+  }
 
-/* Pastikan section vision benar-benar kebaca */
-.page#home .home-vision {
-  position: relative;
-  margin-top: 40px;
-}
+  /* ===============================
+     3. CONTACT = BOLEH PANJANG
+  =============================== */
+  #contact {
+    padding-bottom: 120px; /* 🔥 ruang aman ke footer */
+  }
 
-/* Scroll arrow selalu kelihatan */
-.page#home .scroll-arrow {
-  position: relative;
-  z-index: 5;
-}
+  .contact-bem {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 
-/* PASTIKAN PAGE LAIN AMAN */
-.page:not(#home) {
-  overflow: hidden !important;
+  .contact-left,
+  .contact-right {
+    min-height: unset !important;
+  }
+
+  /* ===============================
+     4. FOOTER = NORMAL
+  =============================== */
+  .simple-footer {
+    position: static;
+    margin-top: 40px;
+  }
+
+  /* ===============================
+     5. TYPEWRITER MATI DI MOBILE
+  =============================== */
+  .typewriter::before,
+  .typewriter::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .typewriter {
+    white-space: normal !important;
+  }
 }
 /* ===============================
    FIX REAL — HEADER KEPOTONG
@@ -773,4 +804,5 @@ body.dark .line-v {
   }
 
 }
+
 
