@@ -2,58 +2,102 @@ const pages = document.querySelectorAll('.page');
 const buttons = document.querySelectorAll('[data-page]');
 
 /* ===============================
-   TYPEWRITER SIMPLE
+   TYPEWRITER CORE
 ================================ */
+
 function typeText(el) {
   const text = el.dataset.text;
-  if (!text || el.dataset.done) return;
+  if (!text) return;
 
-  el.dataset.done = "true";
   el.innerHTML = "";
+  el.dataset.done = "true";
+
   let i = 0;
+  const speed = 35;
 
   const type = () => {
     if (i >= text.length) return;
-    el.innerHTML += text[i] === "\n" ? "<br>" : text[i];
+
+    const char = text[i];
+    el.innerHTML += char === "\n" ? "<br>" : char;
+
     i++;
-    setTimeout(type, 30);
+    setTimeout(type, speed);
   };
 
   type();
 }
 
+/* ===============================
+   OBSERVER (UNTUK PAGE NON-HOME)
+================================ */
+
+let observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      if (entry.isIntersecting && !el.dataset.done) {
+        typeText(el);
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+/* ===============================
+   INIT TYPEWRITER
+================================ */
+
 function initTyping(page) {
-  page.querySelectorAll('.typewriter').forEach(typeText);
+  const isHome = page.id === "home";
+
+  page.querySelectorAll('.typewriter').forEach(el => {
+    if (el.dataset.done) return;
+
+    if (isHome) {
+      // 🔥 HOME: langsung ketik, tanpa observer
+      typeText(el);
+    } else {
+      observer.observe(el);
+    }
+  });
 }
 
 /* ===============================
-   NAVIGATION
+   NAVIGATION HANDLER
 ================================ */
+
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
+    // bersihin observer
+    observer.disconnect();
+
     pages.forEach(p => p.classList.remove('active'));
     const page = document.getElementById(btn.dataset.page);
     page.classList.add('active');
-    initTyping(page);
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    initTyping(page);
   });
 });
 
-/* FIRST LOAD */
-initTyping(document.querySelector('.page.active'));
-
 /* ===============================
-   DARK MODE
+   FIRST LOAD
 ================================ */
+
+initTyping(document.querySelector('.page.active'));
+/* ===============================
+   DARK MODE TOGGLE
+================================ */
+
 const toggle = document.getElementById('darkToggle');
 const body = document.body;
 
+// load saved preference
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
 }
 
-toggle.addEventListener('click', () => {
+toggle?.addEventListener('click', () => {
   body.classList.toggle('dark');
   localStorage.setItem(
     'theme',
