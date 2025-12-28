@@ -645,4 +645,28 @@ body {
     padding: 24px 16px;
   }
 }
+/* =====================================================
+   FIX KRUSIAL — NAVBAR CLICKABLE + DARK MODE HIDUP
+   (DESKTOP & MOBILE)
+===================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10000;          /* 🔥 PALING PENTING */
+  pointer-events: auto;
+}
+
+/* Pastikan layer page di bawah navbar */
+.pages {
+  position: relative;
+  z-index: 1;
+}
+
+/* Matikan transform yang bikin layer nutup navbar */
+.page,
+.page.active {
+  transform: none !important;
+}
+
 
