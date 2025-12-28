@@ -625,4 +625,107 @@ body.dark .node.division {
 body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .nav-links button {
+    margin: 0;
+    font-size: .9rem;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .hero-right {
+    margin-top: 40px;
+  }
+
+  .hero-circle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-right img {
+    width: 180px;
+  }
+
+  /* HOME VISION */
+  .home-vision {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .vision-image img {
+    max-height: 240px;
+  }
+
+  /* SECTION GENERAL */
+  .section {
+    padding: 40px 24px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* STRUKTUR ORGANISASI */
+  .tree {
+    gap: 30px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .node {
+    min-width: unset;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* CONTACT */
+  .contact-bem {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-left,
+  .contact-right {
+    min-height: unset;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
 
