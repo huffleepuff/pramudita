@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pramudita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="brand">
+    <img src="https://i.imgur.com/ISI_LOGO.png">
+    <span>Pramudita</span>
+  </div>
+
+  <div class="nav-links">
+    <button data-page="home">Home</button>
+    <button data-page="struktur">Struktur</button>
+    <button data-page="notulensi">Notulensi</button>
+    <button data-page="contact">Contact</button>
+<button id="darkToggle" title="Toggle Dark Mode">🌙</button>
+  </div>
+</nav>
+
+<main class="pages">
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <div class="home-scroll">
+
+    <div class="hero">
+      <div class="hero-left">
+        <span class="badge typewriter" data-text="OFFICIAL ORGANIZATION"></span>
+        <h1 class="typewriter" data-text="PRAMUDITA"></h1>
+        <p class="typewriter"
+           data-text="Pramudita adalah organisasi karang taruna sebagai wadah pengembangan generasi muda yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial, dari, oleh, dan untuk masyarakat terutama generasi muda di wilayah dusun Tempel, Teglasari, Cepit.">
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-circle"></div>
+        <img src="https://i.imgur.com/ISI_LOGO.png">
+      </div>
+    </div>
+
+    <div class="scroll-arrow"
+         onclick="document.getElementById('vision').scrollIntoView({behavior:'smooth'})">
+      ↓
+    </div>
+
+    <div id="vision" class="home-vision">
+      <div class="vision-text">
+        <span class="vision-label">WHO WE ARE</span>
+
+        <h2>Our Vision</h2>
+        <p>
+          Terciptanya generasi muda yang berintegritas, berkarakter, dan berjiwa sosial demi terwujudnya sumber daya manusia (SDM) yang berkualitas.
+        </p>
+
+        <h2>Our Mission</h2>
+        <ul>
+          <li>Mengembangkan nilai-nilai sopan santun, tata krama, dan budi perkerti di masyarakat.</li>
+          <li>Melestarikan nilai seni, budaya, dan kearifan lokal.</li>
+          <li>Meningkatkan produktivitas sumber daya manusia dan potensi diri.</li>
+	<li>Turut serta dalam kegiatan sosial kemasyarakatan.</li>
+        </ul>
+      </div>
+
+      <div class="vision-image">
+        <img src="https://i.imgur.com/placeholder.jpg" alt="Kepengurusan Pramudita">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STRUKTUR -->
+<section id="struktur" class="page section">
+  <h2 class="section-title typewriter" data-text="Struktur Kepengurusan"></h2>
+  <div class="tree">
+    <div class="node leader center typewriter" data-text="Ketua&#10;Dondi Tri Kurniawan"></div>
+    <div class="line-v"></div>
+
+    <div class="row">
+      <div class="node center typewriter" data-text="Wakil Ketua I&#10;Sugeng Riyadi"></div>
+      <div class="node center typewriter" data-text="Wakil Ketua II&#10;Maulida Nurul"></div>
+    </div>
+
+    <div class="line-v"></div>
+
+    <div class="row wide">
+      <div class="group center">
+        <div class="row center">
+          <div class="node small typewriter" data-text="Sekretaris I&#10;Arifah Evana"></div>
+          <div class="node small typewriter" data-text="Sekretaris II&#10;Ririn Anindita"></div>
+        </div>
+      </div>
+
+      <div class="group center">
+        <div class="row center">
+          <div class="node small typewriter" data-text="Bendahara I&#10;Aisyah Kurniawati"></div>
+          <div class="node small typewriter" data-text="Bendahara II&#10;Meita"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="line-v"></div>
+
+    <div class="row wide divisions">
+      <div class="node division typewriter" data-text="Divisi Humas&#10;Koordinator"></div>
+      <div class="node division typewriter" data-text="Divisi Perkap&#10;Koordinator"></div>
+      <div class="node division typewriter" data-text="Divisi Kerohanian&#10;Koordinator"></div>
+      <div class="node division typewriter" data-text="Divisi Media&#10;Koordinator"></div>
+      <div class="node division typewriter" data-text="Divisi Bakat &amp; Minat&#10;Koordinator"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTULENSI -->
+<section id="notulensi" class="page section">
+  <h2 class="section-title typewriter" data-text="Notulensi Rapat"></h2>
+  <div class="notulen-card">
+    <div class="notulen-header typewriter" data-text="Dokumen Resmi"></div>
+    <iframe src="https://docs.google.com/document/d/e/ISI_ID_DOC/pub?embedded=true"></iframe>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page section contact">
+  <h2 class="section-title typewriter" data-text="Get in Touch"></h2>
+
+  <div class="contact-bem">
+    <div class="contact-left">
+      <span class="contact-badge typewriter" data-text="GET IN TOUCH"></span>
+      <h3 class="typewriter" data-text="Don’t hesitate to contact us&#10;for more information."></h3>
+      <p class="typewriter"
+         data-text="Jika Anda memiliki pertanyaan, kerja sama, atau keperluan organisasi, silakan hubungi kami melalui informasi resmi berikut.">
+      </p>
+
+      <div class="contact-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+        <div>
+          <strong>Organization Relations (Humas)</strong>
+          <span>+62 895363393836</span>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+        <div>
+          <strong>Instagram</strong>
+          <span>@pramuditakita</span>
+        </div>
+      </div>
+
+      <div class="contact-line">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+        <div>
+          <strong>Email Resmi</strong>
+          <span>pramudita@organisasi.id</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h3>Send us a message</h3>
+      <div class="form-row">
+        <input type="text" placeholder="Name">
+        <input type="text" placeholder="Phone">
+      </div>
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Subject">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button>SEND</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER SIMPLE -->
+<footer class="simple-footer">
+  <div class="footer-inner">
+    Copyright © 2025 Pramudita - All rights reserved.
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
