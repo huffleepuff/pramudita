@@ -588,3 +588,60 @@ body {
     margin-top: 40px;
   }
 }
+/* =====================================================
+   MOBILE SCALE FIX — NO MORE ZOOM OUT
+===================================================== */
+@media (max-width: 768px) {
+
+  /* BATAS LEBAR KONTEN */
+  .section,
+  .contact-bem {
+    max-width: 100%;
+  }
+
+  /* CONTACT CARD SCALE */
+  .contact-left,
+  .contact-right {
+    padding: 22px;              /* sebelumnya terlalu besar */
+    border-radius: 22px;
+  }
+
+  /* JUDUL */
+  .section-title {
+    font-size: 1.6rem;          /* dari 2.4rem */
+    line-height: 1.3;
+  }
+
+  .contact-left h3 {
+    font-size: 1.4rem;          /* dari ~2rem */
+    line-height: 1.3;
+  }
+
+  /* TEKS */
+  .contact-left p,
+  .contact-line span {
+    font-size: 0.95rem;
+  }
+
+  /* ICON + TEXT SEIMBANG */
+  .contact-line {
+    gap: 12px;
+  }
+
+  .contact-line img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* FORM */
+  .contact-right input,
+  .contact-right textarea {
+    font-size: 0.95rem;
+  }
+
+  .contact-right button {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+}
+
