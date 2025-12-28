@@ -626,39 +626,42 @@ body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
 /* =====================================================
-   MOBILE MODE — FINAL & CLEAN
-   (FIX SPA + STRUKTUR + CONTACT + TYPEWRITER)
+   MOBILE FIX — JAGA SPA, BUKA SCROLL
 ===================================================== */
 @media (max-width: 768px) {
 
-  /* ==============================
-     1. MATIKAN SISTEM SPA DI MOBILE
-  ============================== */
+  /* ===============================
+     1. PAGES: BOLEH PANJANG
+  =============================== */
   .pages {
-    position: static;
     height: auto;
     padding-top: 72px;
   }
 
+  /* ===============================
+     2. PAGE: TETAP SPA!
+     (HANYA ACTIVE YANG TAMPIL)
+  =============================== */
   .page {
-    position: static;
-    inset: auto;
+    position: absolute;       /* PENTING: JANGAN static */
+    inset: 0;
+    overflow-y: auto;         /* ✅ INI KUNCI */
+  }
+
+  .page:not(.active) {
+    display: none;            /* 🔥 CEGAT NUMPUK */
+  }
+
+  .page.active {
+    display: block;
     opacity: 1;
     transform: none;
     pointer-events: auto;
-    display: block;
-    overflow: visible;
   }
 
-  .page:not(#home),
-  .home-scroll {
-    overflow: visible !important;
-  }
-
-  /* ==============================
-     2. TYPEWRITER — HARD KILL
-     (BIANG BUG TULISAN HANTU)
-  ============================== */
+  /* ===============================
+     3. TYPEWRITER — MATI TOTAL
+  =============================== */
   .typewriter::before,
   .typewriter::after {
     display: none !important;
@@ -669,61 +672,9 @@ body.dark .line-v {
     white-space: normal !important;
   }
 
-  /* ==============================
-     3. NAVBAR
-  ============================== */
-  .navbar {
-    padding: 0 20px;
-    flex-wrap: wrap;
-  }
-
-  .nav-links {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-
-  .nav-links button {
-    margin: 0;
-    font-size: 0.9rem;
-  }
-
-  /* ==============================
-     4. HERO
-  ============================== */
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  .hero-right {
-    margin-top: 32px;
-  }
-
-  .hero-circle {
-    width: 260px;
-    height: 260px;
-  }
-
-  .hero-right img {
-    width: 180px;
-  }
-
-  /* ==============================
-     5. VISION
-  ============================== */
-  .home-vision {
-    grid-template-columns: 1fr;
-    padding: 40px 24px;
-    gap: 40px;
-    text-align: center;
-  }
-
-  /* ==============================
-     6. STRUKTUR ORGANISASI
-  ============================== */
+  /* ===============================
+     4. STRUKTUR ORGANISASI
+  =============================== */
   .tree {
     align-items: stretch;
   }
@@ -733,37 +684,21 @@ body.dark .line-v {
     gap: 16px;
   }
 
-  .line-v {
-    height: 18px;
-  }
-
   .node {
     width: 100%;
     max-width: 320px;
     margin-inline: auto;
   }
 
-  /* ==============================
-     7. CONTACT
-  ============================== */
+  /* ===============================
+     5. CONTACT
+  =============================== */
   .contact-bem {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .contact-left,
   .contact-right {
     min-height: unset;
-  }
-
-  /* ==============================
-     8. GENERAL SECTION
-  ============================== */
-  .section {
-    padding: 40px 24px;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
   }
 }
