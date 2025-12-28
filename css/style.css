@@ -625,49 +625,62 @@ body.dark .node.division {
 body.dark .line-v {
   background: linear-gradient(#facc15, #64748b);
 }
-/* =====================================================
-   MOBILE FIX — TETAP SPA, TAPI AMAN
-===================================================== */
+/* ===============================
+   SPA CLEAN FIX — STABIL SEMUA DEVICE
+================================ */
+
+/* DESKTOP & MOBILE SAMA */
+.pages {
+  min-height: calc(100vh - 72px);
+}
+
+/* PAGE SYSTEM */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* JANGAN ADA POSITION ABSOLUTE */
+.page,
+.pages {
+  position: relative !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* FOOTER NORMAL */
+.simple-footer {
+  margin-top: 80px;
+}
+
+/* ===============================
+   MOBILE LAYOUT ONLY
+================================ */
 @media (max-width: 768px) {
 
-  /* Pages boleh panjang */
-  .pages {
-    height: auto;
-    padding-top: 72px;
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    text-align: center;
   }
 
-  /* PAGE — TETAP ABSOLUTE (JANGAN DISENTUH) */
-  .page {
-    position: absolute;
-    inset: 0;
-    overflow-y: auto;      /* ← INI KUNCI MOBILE */
-    transform: none;       /* matikan animasi */
-    transition: none;
+  .hero-circle {
+    width: 260px;
+    height: 260px;
   }
 
-  /* NON-ACTIVE tetap transparan */
-  .page:not(.active) {
-    opacity: 0;
-    pointer-events: none;
+  .hero-right img {
+    width: 180px;
   }
 
-  .page.active {
-    opacity: 1;
-    pointer-events: auto;
+  .home-vision {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
   }
 
-  /* TYPEWRITER MATI TOTAL */
-  .typewriter::before,
-  .typewriter::after {
-    display: none !important;
-    content: none !important;
-  }
-
-  .typewriter {
-    white-space: normal !important;
-  }
-
-  /* STRUKTUR */
   .row {
     flex-direction: column;
     gap: 16px;
@@ -679,13 +692,7 @@ body.dark .line-v {
     margin-inline: auto;
   }
 
-  /* CONTACT */
   .contact-bem {
     grid-template-columns: 1fr;
-  }
-
-  .contact-left,
-  .contact-right {
-    min-height: unset;
   }
 }
