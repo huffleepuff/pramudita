@@ -1,0 +1,628 @@
+:root {
+  --blue:#2f3e57;
+  --yellow:#f2c100;
+  --text:#1f2937;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left,#f2c10033,transparent 40%),
+    radial-gradient(circle at bottom right,#2f3e5733,transparent 45%),
+    #fff;
+  color:var(--text);
+
+  /* 🔥 FIX SATU-SATUNYA */
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  height:72px;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.brand {
+  display:flex;
+  gap:10px;
+  font-weight:800;
+  color:var(--blue);
+}
+
+.brand img { width:32px }
+
+.nav-links button {
+  background:none;
+  border:none;
+  margin:0 14px;
+  font-weight:500;
+  cursor:pointer;
+}
+/* DARK MODE TOGGLE */
+#darkToggle {
+  font-size: 1rem;
+  opacity: .8;
+}
+
+#darkToggle:hover {
+  opacity: 1;
+}
+
+/* PAGES */
+.pages {
+  height:calc(100vh - 72px);
+  position:relative;
+}
+
+.page {
+  position:absolute;
+  inset:0;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(30px);
+  transition:.5s ease;
+}
+
+.page.active {
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+}
+
+/* ===== HOME & STRUKTUR ASLI ===== */
+
+.hero {
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  padding:80px;
+  align-items:center;
+}
+
+.hero-left h1 {
+  font-size:3.2rem;
+  margin:20px 0;
+}
+
+.badge {
+  background:var(--blue);
+  color:white;
+  padding:6px 14px;
+  border-radius:18px;
+  font-size:.75rem;
+}
+
+.hero-right {
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-circle {
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:var(--yellow);
+  position:absolute;
+}
+
+.hero-right img {
+  width:240px;
+  z-index:1;
+}
+
+/* SECTION */
+.section {
+  padding:60px;
+  max-width:1300px;
+  margin:auto;
+}
+
+/* (sisanya TIDAK DIUBAH — sama persis seperti file lu) */
+
+.section-title {
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:40px;
+  color:var(--blue);
+}
+
+/* TREE */
+.tree {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+}
+
+.row {
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.wide { max-width:1000px }
+
+.node {
+  background:white;
+  padding:16px 22px;
+  border-radius:16px;
+  box-shadow:0 14px 40px rgba(0,0,0,.18);
+  text-align:center;
+  min-width:170px;
+  font-weight:600;
+}
+
+.leader {
+  border:3px solid var(--yellow);
+}
+
+.small { font-size:.85rem }
+
+.division {
+  background:linear-gradient(135deg,var(--blue),var(--yellow));
+  color:white;
+}
+
+.line-v {
+  width:2px;
+  height:30px;
+  background:linear-gradient(var(--blue),var(--yellow));
+}
+
+/* NOTULENSI */
+.notulen-card {
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(8px);
+  border-radius:22px;
+  box-shadow:0 24px 60px rgba(0,0,0,.25);
+  overflow:hidden;
+}
+
+.notulen-header {
+  padding:16px;
+  background:linear-gradient(90deg,var(--blue),var(--yellow));
+  color:white;
+  font-weight:600;
+}
+
+.notulen-card iframe {
+  width:100%;
+  height:600px;
+  border:none;
+}
+
+/* =======================
+   CONTACT (FINAL POLISH)
+======================= */
+
+.contact-bem {
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:stretch;
+}
+
+.contact-left,
+.contact-right {
+  border-radius:28px;
+  min-height:520px;
+}
+
+/* LEFT */
+.contact-left {
+  background:
+    linear-gradient(180deg, rgba(47,62,87,.85), rgba(47,62,87,.95)),
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1")
+      center / cover;
+  color:white;
+  padding:48px;
+}
+
+.contact-badge {
+  display:inline-block;
+  background:var(--yellow);
+  color:#000;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.75rem;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.contact-left h3 {
+  font-size:2rem;
+  line-height:1.3;
+  margin-bottom:18px;
+}
+
+.contact-left p {
+  opacity:.9;
+  margin-bottom:30px;
+}
+
+/* CONTACT LINE */
+.contact-line {
+  display:flex;
+  gap:14px;
+  margin-top:18px;
+  align-items:flex-start;
+}
+
+.contact-line img {
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+/* 🔥 TEXT STACK (INI KUNCI PERMINTAAN LU) */
+.contact-line div {
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-line strong {
+  font-weight:600;
+}
+
+.contact-line span {
+  font-size:.9rem;
+  opacity:.9;
+  margin-top:2px;
+}
+
+/* RIGHT */
+.contact-right {
+  background:white;
+  padding:40px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-right h3 {
+  font-size:1.8rem;
+  margin-bottom:20px;
+  color:var(--blue);
+}
+
+.form-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.contact-right button {
+  margin-top:auto;
+  padding:14px;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--blue),var(--yellow));
+  color:white;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+
+/* TYPEWRITER */
+.typewriter {
+  position:relative;
+}
+
+.typewriter::before {
+  content:attr(data-text);
+  visibility:hidden;
+  white-space:pre-wrap;
+  display:block;
+  height:0;
+}
+
+.typewriter::after {
+  content:"│";
+  margin-left:2px;
+  animation:blink 1s infinite;
+}
+
+.typewriter[data-done="true"]::after {
+  display:none;
+}
+
+@keyframes blink {
+  50% { opacity:0 }
+}
+/* =========================
+   Badge TIDAK ikut typewriter
+========================= */
+
+.badge.typewriter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  min-height: 28px;
+  white-space: nowrap;
+}
+
+/* Matikan efek typewriter untuk badge */
+.badge.typewriter::before,
+.badge.typewriter::after {
+  content: none !important;
+}
+/* =========================
+   HOME SCROLLABLE (KHUSUS)
+========================= */
+
+.home-scroll {
+  position: relative;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* Hero tetap full 1 layar */
+.home-scroll .hero {
+  min-height: calc(100vh - 72px);
+}
+
+/* Scroll Arrow */
+.scroll-arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--blue);
+  cursor: pointer;
+  margin-bottom: 40px;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* =========================
+   VISION & MISSION SECTION
+========================= */
+
+.home-vision {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.vision-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+
+.home-vision h2 {
+  font-size: 2.4rem;
+  margin: 18px 0;
+  color: var(--blue);
+}
+
+.home-vision p {
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.home-vision ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.home-vision li {
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 22px;
+}
+
+.home-vision li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-size: 1.4rem;
+  top: -2px;
+}
+
+/* Image */
+.vision-image img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.25);
+  object-fit: cover;
+}
+
+/* Pastikan page LAIN tetap 1 layar */
+.page:not(#home) {
+  overflow: hidden;
+}
+/* ===============================
+   PATCH AMAN — HOME SCROLL ONLY
+   (TIDAK MERUSAK PAGE LAIN)
+================================ */
+
+/* Jangan sentuh sistem SPA lama */
+.page#home {
+  position: absolute;      /* tetap absolute */
+  overflow-y: auto;        /* scroll aktif DI DALAM home */
+}
+
+/* Paksa isi home boleh lebih tinggi dari 1 layar */
+.page#home > * {
+  pointer-events: auto;
+}
+
+/* Hero tetap 1 layar penuh */
+.page#home .hero {
+  min-height: calc(100vh - 72px);
+}
+
+/* Pastikan section vision benar-benar kebaca */
+.page#home .home-vision {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Scroll arrow selalu kelihatan */
+.page#home .scroll-arrow {
+  position: relative;
+  z-index: 5;
+}
+
+/* PASTIKAN PAGE LAIN AMAN */
+.page:not(#home) {
+  overflow: hidden !important;
+}
+/* ===============================
+   FIX REAL — HEADER KEPOTONG
+   TANPA SENTUH SPA SYSTEM
+================================ */
+
+/* Biarkan .page apa adanya */
+.page {
+  inset: 0; /* BIARKAN */
+}
+
+/* Geser seluruh area pages ke bawah navbar */
+.pages {
+  padding-top: 72px;
+  height: 100vh;
+}
+/* ===============================
+   SIMPLE FOOTER — AMAN & BERSIH
+================================ */
+
+.simple-footer {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.simple-footer .footer-inner {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+/* =========================
+   DARK MODE VARIABLES
+========================= */
+body.dark {
+  --blue: #9db4ff;
+  --yellow: #facc15;
+  --text: #e5e7eb;
+
+  background:
+    radial-gradient(circle at top left, #1f293733, transparent 40%),
+    radial-gradient(circle at bottom right, #11182733, transparent 45%),
+    #0f172a;
+}
+
+/* General dark tweaks */
+body.dark .navbar {
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+body.dark .node,
+body.dark .contact-right,
+body.dark .notulen-card {
+  background: #020617;
+  color: var(--text);
+}
+
+body.dark .hero-circle {
+  opacity: 0.9;
+}
+
+body.dark .simple-footer {
+  background:#020617;
+  color:#9ca3af;
+  border-top:1px solid #1e293b;
+}
+/* =========================
+   DARK MODE – NAVBAR FIX
+========================= */
+
+body.dark {
+  color: #e5e7eb;
+}
+
+body.dark .navbar {
+  background: rgba(10, 15, 30, 0.85);
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+body.dark .brand,
+body.dark .brand span {
+  color: #e5e7eb;
+}
+
+body.dark .nav-links button {
+  color: #c7d2fe;
+}
+
+body.dark .nav-links button:hover {
+  color: #facc15;
+}
+/* =========================
+   DARK MODE – STRUKTUR FIX
+========================= */
+
+body.dark .section-title {
+  color: #c7d2fe;
+}
+
+/* Node base */
+body.dark .node {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  color: #e5e7eb;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 20px 50px rgba(0,0,0,.6);
+}
+
+/* Ketua (highlight tetap emas) */
+body.dark .node.leader {
+  border: 2px solid var(--yellow);
+  background: linear-gradient(145deg, #111827, #020617);
+}
+
+/* Divisi */
+body.dark .node.division {
+  background: linear-gradient(135deg, #1e293b, #020617);
+  color: #e5e7eb;
+}
+
+/* Garis penghubung */
+body.dark .line-v {
+  background: linear-gradient(#facc15, #64748b);
+}
+
