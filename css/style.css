@@ -464,29 +464,25 @@ body {
   overflow: hidden;
 }
 /* =====================================================
-   MOBILE FINAL FIX — STOP CUTTING CONTENT
-   (CONTACT, FOOTER, SCROLL FIX)
+   MOBILE FINAL — STABIL, CLEAN, TANPA NERAKA
 ===================================================== */
 @media (max-width: 768px) {
 
   /* ===============================
-     1. LEPAS KUNCI CONTAINER
+     1. PAGE SYSTEM (SPA AMAN)
   =============================== */
   .pages {
-    height: auto !important;
+    position: relative;
     min-height: calc(100vh - 72px);
-    position: static !important;
+    height: auto;
     padding-top: 72px;
   }
 
-  /* ===============================
-     2. PAGE = NORMAL FLOW
-  =============================== */
   .page {
-    position: static !important;
-    inset: auto !important;
     display: none;
-    overflow: visible !important;
+    position: relative;
+    height: auto;
+    overflow: visible;
   }
 
   .page.active {
@@ -494,204 +490,31 @@ body {
   }
 
   /* ===============================
-     3. CONTACT = BOLEH PANJANG
+     2. HEADER MOBILE (RAPI)
   =============================== */
-  #contact {
-    padding-bottom: 120px; /* 🔥 ruang aman ke footer */
+  .navbar {
+    height: auto;
+    padding: 14px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .contact-bem {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .nav-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 6px;
   }
 
-  .contact-left,
-  .contact-right {
-    min-height: unset !important;
+  .nav-links button {
+    font-size: 0.85rem;
+    padding: 6px 0;
   }
 
   /* ===============================
-     4. FOOTER = NORMAL
+     3. HERO
   =============================== */
-  .simple-footer {
-    position: static;
-    margin-top: 40px;
-  }
-
-  /* ===============================
-     5. TYPEWRITER MATI DI MOBILE
-  =============================== */
-  .typewriter::before,
-  .typewriter::after {
-    display: none !important;
-    content: none !important;
-  }
-
-  .typewriter {
-    white-space: normal !important;
-  }
-}
-/* ===============================
-   FIX REAL — HEADER KEPOTONG
-   TANPA SENTUH SPA SYSTEM
-================================ */
-
-/* Biarkan .page apa adanya */
-.page {
-  inset: 0; /* BIARKAN */
-}
-
-/* Geser seluruh area pages ke bawah navbar */
-.pages {
-  padding-top: 72px;
-  height: 100vh;
-}
-/* ===============================
-   SIMPLE FOOTER — AMAN & BERSIH
-================================ */
-
-.simple-footer {
-  width: 100%;
-  background: #ffffff;
-  border-top: 1px solid #e5e7eb;
-  padding: 24px 16px;
-  text-align: center;
-}
-
-.simple-footer .footer-inner {
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-/* =========================
-   DARK MODE VARIABLES
-========================= */
-body.dark {
-  --blue: #9db4ff;
-  --yellow: #facc15;
-  --text: #e5e7eb;
-
-  background:
-    radial-gradient(circle at top left, #1f293733, transparent 40%),
-    radial-gradient(circle at bottom right, #11182733, transparent 45%),
-    #0f172a;
-}
-
-/* General dark tweaks */
-body.dark .navbar {
-  background: rgba(15, 23, 42, 0.9);
-  box-shadow: 0 10px 30px rgba(0,0,0,.6);
-}
-
-body.dark .node,
-body.dark .contact-right,
-body.dark .notulen-card {
-  background: #020617;
-  color: var(--text);
-}
-
-body.dark .hero-circle {
-  opacity: 0.9;
-}
-
-body.dark .simple-footer {
-  background:#020617;
-  color:#9ca3af;
-  border-top:1px solid #1e293b;
-}
-/* =========================
-   DARK MODE – NAVBAR FIX
-========================= */
-
-body.dark {
-  color: #e5e7eb;
-}
-
-body.dark .navbar {
-  background: rgba(10, 15, 30, 0.85);
-  box-shadow: 0 10px 30px rgba(0,0,0,.6);
-}
-
-body.dark .brand,
-body.dark .brand span {
-  color: #e5e7eb;
-}
-
-body.dark .nav-links button {
-  color: #c7d2fe;
-}
-
-body.dark .nav-links button:hover {
-  color: #facc15;
-}
-/* =========================
-   DARK MODE – STRUKTUR FIX
-========================= */
-
-body.dark .section-title {
-  color: #c7d2fe;
-}
-
-/* Node base */
-body.dark .node {
-  background: linear-gradient(145deg, #0f172a, #020617);
-  color: #e5e7eb;
-  box-shadow: 
-    inset 0 0 0 1px rgba(255,255,255,.06),
-    0 20px 50px rgba(0,0,0,.6);
-}
-
-/* Ketua (highlight tetap emas) */
-body.dark .node.leader {
-  border: 2px solid var(--yellow);
-  background: linear-gradient(145deg, #111827, #020617);
-}
-
-/* Divisi */
-body.dark .node.division {
-  background: linear-gradient(135deg, #1e293b, #020617);
-  color: #e5e7eb;
-}
-
-/* Garis penghubung */
-body.dark .line-v {
-  background: linear-gradient(#facc15, #64748b);
-}
-/* ===============================
-   SPA CLEAN FIX — STABIL SEMUA DEVICE
-================================ */
-
-/* DESKTOP & MOBILE SAMA */
-.pages {
-  min-height: calc(100vh - 72px);
-}
-
-/* PAGE SYSTEM */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-/* JANGAN ADA POSITION ABSOLUTE */
-.page,
-.pages {
-  position: relative !important;
-  height: auto !important;
-  overflow: visible !important;
-}
-
-/* FOOTER NORMAL */
-.simple-footer {
-  margin-top: 80px;
-}
-
-/* ===============================
-   MOBILE LAYOUT ONLY
-================================ */
-@media (max-width: 768px) {
-
   .hero {
     grid-template-columns: 1fr;
     padding: 40px 24px;
@@ -707,74 +530,25 @@ body.dark .line-v {
     width: 180px;
   }
 
-  .home-vision {
-    grid-template-columns: 1fr;
-    padding: 40px 24px;
-  }
-
+  /* ===============================
+     4. STRUKTUR
+  =============================== */
   .row {
     flex-direction: column;
     gap: 16px;
   }
 
   .node {
-    width: 100%;
     max-width: 320px;
+    width: 100%;
     margin-inline: auto;
   }
 
-  .contact-bem {
-    grid-template-columns: 1fr;
-  }
-}
-/* ===============================
-   MOBILE HEADER — CLEAN & NICE
-================================ */
-@media (max-width: 768px) {
-
-  .navbar {
-    height: auto;
-    padding: 14px 18px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .brand {
-    font-size: 1.1rem;
-    gap: 8px;
-  }
-
-  .brand img {
-    width: 28px;
-  }
-
-  .nav-links {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) auto;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .nav-links button {
-    font-size: 0.85rem;
-    padding: 6px 0;
-  }
-
-  #darkToggle {
-    font-size: 1.1rem;
-    justify-self: end;
-  }
-
-}
-/* ===============================
-   MOBILE CONTACT — FULLY SAFE
-================================ */
-@media (max-width: 768px) {
-
-  .contact {
-    padding-bottom: 80px; /* ruang aman sebelum footer */
+  /* ===============================
+     5. CONTACT — FIX UTAMA
+  =============================== */
+  #contact {
+    padding-bottom: 80px;
   }
 
   .contact-bem {
@@ -784,50 +558,33 @@ body.dark .line-v {
 
   .contact-left,
   .contact-right {
+    min-height: auto;
+    height: auto;
     padding: 28px;
   }
 
   .contact-left h3 {
     font-size: 1.6rem;
+    line-height: 1.3;
   }
 
-  .contact-line {
-    align-items: center;
+  /* ===============================
+     6. TYPEWRITER OFF MOBILE
+  =============================== */
+  .typewriter::before,
+  .typewriter::after {
+    display: none !important;
+    content: none !important;
   }
 
-  .contact-line span {
-    line-height: 1.4;
+  .typewriter {
+    white-space: normal;
   }
 
-  .contact-right textarea {
-    resize: vertical;
+  /* ===============================
+     7. FOOTER
+  =============================== */
+  .simple-footer {
+    margin-top: 40px;
   }
-
 }
-/* ===============================
-   CONTACT FINAL FIX (REAL CULPRIT)
-=============================== */
-@media (max-width: 768px) {
-
-  /* CONTACT CARD HARUS AUTO */
-  .contact-left,
-  .contact-right {
-    min-height: auto !important; /* 🔥 INI KUNCI */
-    height: auto !important;
-  }
-
-  /* CONTACT LEFT HARUS BOLEH TINGGI */
-  .contact-left {
-    padding-bottom: 56px; /* ruang alami */
-  }
-
-  /* PASTIKAN PARENT-NYA JUGA WARAS */
-  #contact,
-  .contact-bem {
-    overflow: visible !important;
-  }
-
-}
-
-
-
